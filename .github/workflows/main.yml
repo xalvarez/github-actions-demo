@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build and test application
+      uses: LucaFeger/action-maven-cli@1.1.0
+      with:
+        args: clean package test
